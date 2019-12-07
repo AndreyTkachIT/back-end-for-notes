@@ -1,0 +1,31 @@
+{
+  "name": "notes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "ava ./tests/*.js"
+  },
+  "author": "Andrey Tkach",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "chalk": "latest",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.7.13",
+    "nodemon": "^2.0.1",
+    "supertest-koa-agent": "^0.3.2",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "ava": "^2.4.0"
+  }
+}
