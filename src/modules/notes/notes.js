@@ -1,16 +1,14 @@
 const Router = require("koa-router");
-const { listNotes, findNoteById, deleteNote } = require("../../services/note");
+const { list, findById } = require("../../services/note");
 
 const router = new Router();
 
-
-
 router.get("/", async ctx => {
-  ctx.body = await listNotes();
+  ctx.body = await list();
 });
 
 router.get("/:id", async ctx => {
-  const note = await findNoteById(ctx.params.id);
+  const note = await findById(ctx.params.id);
   if (note) {
     ctx.body = note;
   } else {

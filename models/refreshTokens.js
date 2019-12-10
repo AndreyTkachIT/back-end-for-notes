@@ -1,9 +1,9 @@
 const Schema = require("mongoose").Schema;
 
-const Notes = new Schema({
+const RefreshTokens = new Schema({
   userId: { type: String, required: true },
-  title: { type: String, required: true },
+  refreshToken: { type: String, required: true },
   date: { type: Date, required: true }
 });
 
-module.exports = Notes;
+module.exports = RefreshTokens;

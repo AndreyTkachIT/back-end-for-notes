@@ -3,11 +3,12 @@ const userSchema = require("../../models/users");
 const User = mongoose.model("User", userSchema);
 const bcrypt = require('bcryptjs');
 
-async function findByUser(userParam) {
-  return User.findOne({ login: userParam });
+async function find(login) {
+  return User.findOne({ login: login });
 }
 
-async function createUser(userParam) {
+async function create(userParam) {
+  // TODO: Fill all param
   if (await User.findOne({ login: userParam.username })) {
     throw 'Username "' + userParam.username + '" is already taken';
   }
@@ -24,7 +25,7 @@ async function createUser(userParam) {
 }
 
 module.exports = {
-  findByUser,
-  createUser,
+  find,
+  create,
 
 };

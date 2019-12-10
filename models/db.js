@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-
-const db = require('./property');
+const db = require('./_accessDb');
 
 function connectDb () {
   const url = `mongodb+srv://${db.MONGO_USERNAME}:${db.MONGO_PASSWORD}@${db.MONGO_HOSTNAME}/${db.MONGO_DB}?authSource=admin`;
@@ -12,20 +11,20 @@ function connectDb () {
   });
 
   mongoose.connection.on('connected', () => {
-    console.log("Mongoose default connection is open.");
+    console.log("Mongo connection success.");
   });
 
   mongoose.connection.on('error', (err) => {
-    console.log("Mongoose default connection has occurred "+err+" error");
+    console.log("Mongo connection has occurred "+err+" error");
   });
 
   mongoose.connection.on('disconnected', () => {
-    console.log("Mongoose default connection is disconnected");
+    console.log("Mongo connection is disconnected");
   });
 
   process.on('SIGINT', () => {
     mongoose.connection.close(() => {
-      console.log("Mongoose default connection is disconnected due to application termination");
+      console.log("Mongo connection is disconnected due to application termination");
       process.exit(0)
     });
   });

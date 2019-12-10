@@ -3,24 +3,20 @@ const noteSchema = require("../../models/notes");
 
 const Note = mongoose.model("Note", noteSchema);
 
-async function listNotes() {
-  const query = Note.find();
-  query.getFilter();
-  return query;
+async function list() {
+  return Note.find().exec();
 }
 
-async function findNoteById(id) {
+async function findById(id) {
   if (!mongoose.Types.ObjectId.isValid(id)) { return null}
 
-  const query = Note.findById(id);
-  query.getFilter();
-  return query;
+  return Note.findById(id).exec();
 }
 
-async function deleteNote(query) {}
+async function remove(query) {}
 
 module.exports = {
-  listNotes,
-  findNoteById,
-  deleteNote
+  list,
+  findById,
+  remove
 };

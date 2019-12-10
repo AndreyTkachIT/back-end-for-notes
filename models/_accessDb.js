@@ -1,3 +1,5 @@
+// Only for the demo tests
+
 const MONGO_USERNAME = 'admin';
 const MONGO_PASSWORD = 'admin';
 const MONGO_HOSTNAME = 'notes-vz7i5.mongodb.net';
